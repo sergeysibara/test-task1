@@ -14,7 +14,11 @@ interface ITabsHeaderProps {
 }
 
 export function TabsContainer({ tabs, children }: ITabsHeaderProps) {
-  const [activeTab, setActiveTab] = useState(tabs[0].key);
+  if (tabs.length === 0) {
+    console.warn('TabsContainer: "tabs" is empty');
+  }
+
+  const [activeTab, setActiveTab] = useState(tabs[0]?.key || 0);
 
   const toggle = (tab: string) => {
     if (activeTab !== tab) {
