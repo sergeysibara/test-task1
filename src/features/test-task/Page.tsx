@@ -1,54 +1,32 @@
-// import React, { ReactNode, useState } from 'react';
-import {
-  // TabContent,
-  // TabPane,
-  // // Nav,
-  // // NavItem,
-  // // NavLink,
-  // Card,
-  // CardTitle,
-  // CardText,
-  Row,
-  Col,
-  Container,
-} from 'reactstrap';
-// @ts-ignore
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Container } from 'reactstrap';
+import { TabsContainer } from 'components/tabs/TabsContainer';
+import { TabPanel } from 'components/tabs/TabPanel';
 import { Tab1Content } from './Tab1Content';
+
+const tabs = [
+  { key: 'tab1', text: 'Tab 1' },
+  { key: 'tab2', text: 'Tab 2' },
+  { key: 'tab3', text: 'Tab 3' },
+];
 
 export function Page() {
   return (
     <Container fluid>
       <br />
-      <Tabs>
-        <TabList>
-          <Tab>Tab 1</Tab>
-          <Tab>Tab 2</Tab>
-          <Tab>Tab 3</Tab>
-        </TabList>
+      <TabsContainer tabs={tabs}>
+        <br />
+        <TabPanel tabId={tabs[0].key}>
+          <Tab1Content />
+        </TabPanel>
 
-        <TabPanel>
-          <Row>
-            <Col>
-              <Tab1Content />
-            </Col>
-          </Row>
+        <TabPanel tabId={tabs[1].key}>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing ...</p>
         </TabPanel>
-        <TabPanel>
-          <Row>
-            <Col>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing ...</p>
-            </Col>
-          </Row>
+
+        <TabPanel tabId={tabs[2].key}>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing 2 ...</p>
         </TabPanel>
-        <TabPanel>
-          <Row>
-            <Col>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing 2 ...</p>
-            </Col>
-          </Row>
-        </TabPanel>
-      </Tabs>
+      </TabsContainer>
     </Container>
   );
 }

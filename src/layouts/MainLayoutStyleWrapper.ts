@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakpointsDown } from 'styles/breakpoints';
 
 export const MainLayoutStyleWrapper = styled.div`
   display: flex;
@@ -9,7 +10,7 @@ export const MainLayoutStyleWrapper = styled.div`
     min-height: 100px;
     background-color: yellow;
 
-    @media (max-width: 767px) {
+    @media (${breakpointsDown.md}) {
       background-color: #ffffb7;
     }
   }
@@ -23,7 +24,7 @@ export const MainLayoutStyleWrapper = styled.div`
     min-height: 100px;
     background-color: green;
 
-    @media (max-width: 575px) {
+    @media (${breakpointsDown.sm}) {
       background-color: lightpink;
     }
   }
